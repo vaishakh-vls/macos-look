@@ -1,0 +1,102 @@
+[org/gnome/desktop/interface]
+gtk-theme='MacTahoe-Dark-solid'
+icon-theme='MacTahoe-dark'
+cursor-theme='MacTahoe-cursors'
+color-scheme='prefer-dark'
+font-name='Inter 11'
+document-font-name='Inter 11'
+clock-show-weekday=true
+enable-hot-corners=false
+
+[org/gnome/desktop/wm/preferences]
+button-layout='close,minimize,maximize:'
+titlebar-font='Inter SemiBold 11'
+
+[org/gnome/desktop/peripherals/touchpad]
+tap-to-click=true
+natural-scroll=true
+two-finger-scrolling-enabled=true
+click-method='fingers'
+disable-while-typing=true
+
+[org/gnome/nautilus/icon-view]
+default-zoom-level='medium'
+
+[org/gnome/shell/extensions/user-theme]
+name='MacTahoe-Dark'
+
+[org/gnome/shell/extensions/dash-to-dock]
+dock-position='BOTTOM'
+extend-height=false
+dock-fixed=false
+autohide=true
+intellihide=true
+dash-max-icon-size=56
+show-apps-at-top=true
+show-trash=true
+show-mounts=false
+show-mounts-network=false
+running-indicator-style='DOTS'
+apply-custom-theme=false
+transparency-mode='DEFAULT'
+
+[org/gnome/shell/extensions/just-perfection]
+accessibility-menu=false
+activities-button=false
+# The clock on the right; Mac Look then puts it just before Wi-Fi, volume and
+# battery, so the battery is at the far right.
+clock-menu-position=1
+clock-menu-position-offset=20
+notification-banner-position=2
+startup-status=0
+support-notifier-type=0
+workspace-popup=false
+
+[org/gnome/shell/extensions/Logo-menu]
+# The Ubuntu logo (Logo Menu's symbolic icon number 5), not Apple's.
+use-custom-icon=false
+symbolic-icon=true
+menu-button-icon-image=5
+menu-button-icon-size=20
+menu-button-software-center='snap-store'
+show-activities-button=false
+show-lockscreen=true
+show-power-options=true
+
+[org/gnome/shell/extensions/touchpad-gesture-customization]
+vertical-swipe-3-fingers-gesture='OVERVIEW_NAVIGATION'
+vertical-swipe-4-fingers-gesture='OVERVIEW_NAVIGATION'
+overview-navigation-states='GNOME'
+horizontal-swipe-3-fingers-gesture='WORKSPACE_SWITCHING'
+horizontal-swipe-4-fingers-gesture='WORKSPACE_SWITCHING'
+pinch-3-finger-gesture='NONE'
+pinch-4-finger-gesture='SHOW_DESKTOP'
+
+[org/gnome/shell/extensions/blur-my-shell]
+# The defaults plus 'pipeline_lockscreen': no blur, just 22% darker, so the
+# lock screen shows the wallpaper sharp, as macOS Tahoe does.
+pipelines={'pipeline_default': {'name': <'Default'>, 'effects': <[<{'type': <'dual_kawase_blur'>, 'id': <'effect_000000000000'>, 'params': <{'unscaled_radius': <30>, 'brightness': <0.59999999999999998>}>}>]>}, 'pipeline_liquid_glass': {'name': <'Liquid Glass'>, 'effects': <[<{'type': <'luminosity'>, 'id': <'effect_liquid_glass_luminosity'>, 'params': <{'saturation_multiplicator': <1.1000000000000001>}>}>, <{'type': <'refraction'>, 'id': <'effect_liquid_glass_refraction'>, 'params': <{'tint': <0>}>}>, <{'type': <'noise'>, 'id': <'effect_liquid_glass_noise'>, 'params': <{'noise': <0.10000000000000001>}>}>]>}, 'pipeline_vapor_glass': {'name': <'Vapor Glass'>, 'effects': <[<{'type': <'luminosity'>, 'id': <'effect_vapor_glass_luminosity'>, 'params': <{'saturation_multiplicator': <1.1000000000000001>}>}>, <{'type': <'wave'>, 'id': <'effect_vapor_glass_wave'>}>, <{'type': <'refraction'>, 'id': <'effect_vapor_glass_refraction'>, 'params': <{'tint': <0>}>}>, <{'type': <'noise'>, 'id': <'effect_vapor_glass_noise'>, 'params': <{'noise': <0.10000000000000001>}>}>]>}, 'pipeline_classic_light_background': {'name': <'Classic Light Background'>, 'effects': <[<{'type': <'dual_kawase_blur'>, 'id': <'effect_classic_light_blur'>, 'params': <{'unscaled_radius': <30>, 'brightness': <0.59999999999999998>}>}>, <{'type': <'color'>, 'id': <'effect_classic_light_color'>, 'params': <{'color': <(1.0, 1.0, 1.0, 0.25)>, 'blend_mode': <17>}>}>]>}, 'pipeline_classic_dark_background': {'name': <'Classic Dark Background'>, 'effects': <[<{'type': <'dual_kawase_blur'>, 'id': <'effect_classic_dark_blur'>, 'params': <{'unscaled_radius': <30>, 'brightness': <0.59999999999999998>}>}>, <{'type': <'color'>, 'id': <'effect_classic_dark_color'>, 'params': <{'color': <(0.40000000000000002, 0.40000000000000002, 0.40000000000000002, 0.34999999999999998)>, 'blend_mode': <17>}>}>]>}, 'pipeline_lockscreen': {'name': <'Lock Screen'>, 'effects': <[<{'type': <'color'>, 'id': <'effect_lockscreen_dim'>, 'params': <{'color': <(0.0, 0.0, 0.0, 0.22)>, 'blend_mode': <0>}>}>]>}}
+
+[org/gnome/shell/extensions/blur-my-shell/lockscreen]
+pipeline='pipeline_lockscreen'
+
+[org/gnome/shell/extensions/blur-my-shell/dash-to-dock]
+# Transparent, so Mac Look's light glass tint and edge show over the blur.
+style-dash-to-dock=0
+brightness=0.85
+
+[org/gnome/shell/extensions/appindicator]
+# Tray icons the same 20 px as the rest of the top bar (Mac Look).
+icon-size=20
+
+[org/gnome/shell/extensions/blur-my-shell/popup]
+static-blur=true
+
+[org/gnome/shell/extensions/blur-my-shell/screenshot]
+blur=false
+
+[org/gnome/shell/extensions/blur-my-shell/coverflow-alt-tab]
+blur=false
+
+[org/gnome/shell/extensions/blur-my-shell/window-list]
+blur=false

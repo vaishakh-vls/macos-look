@@ -1,0 +1,13 @@
+{
+  "uuid": "mac-look@virallens.com",
+  "name": "Mac Look",
+  "description": "Finishing touches for a macOS Tahoe look on GNOME 46: a lock screen with the date above a large clock and the password field at the bottom, the focused app's name in the top bar, the battery at the far right, a Control Center, dock and top bar styled like macOS, and a five-finger pinch for the app grid.",
+  "shell-version": [
+    "46"
+  ],
+  "session-modes": [
+    "user",
+    "unlock-dialog"
+  ],
+  "version": 2
+}

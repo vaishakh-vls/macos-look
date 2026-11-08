@@ -1,0 +1,278 @@
+/* macOS Tahoe style lock screen clock: date on top, then a large bold time. */
+.mac-lockscreen-clock {
+  spacing: 0;
+  padding-bottom: 0;
+}
+
+.mac-lockscreen-clock .unlock-dialog-clock-date {
+  font-family: "Inter Display", "Inter", sans-serif;
+  font-size: 19pt;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+}
+
+.mac-lockscreen-clock .unlock-dialog-clock-time {
+  font-family: "Inter Display", "Inter", sans-serif;
+  font-size: 104pt;
+  font-weight: 700;
+  letter-spacing: -2px;
+  padding-top: 0;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 2px 22px rgba(0, 0, 0, 0.3);
+}
+
+.mac-lockscreen-clock .unlock-dialog-clock-hint {
+  font-size: 10.5pt;
+  color: rgba(255, 255, 255, 0.6);
+  padding-top: 0;
+}
+
+/* The password prompt near the bottom, as on macOS: a small picture, the
+   name, then a frosted pill whose ring glows blue while you type. */
+.unlock-dialog .login-dialog-prompt-layout {
+  padding-top: 0;
+  padding-bottom: 0;
+  spacing: 10px;
+}
+.unlock-dialog .user-widget.vertical .user-icon {
+  icon-size: 64px;
+}
+.unlock-dialog .user-widget.vertical .user-widget-label {
+  font-size: 17px;
+  font-weight: 600;
+  padding-top: 8px;
+  color: white;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+}
+.unlock-dialog .login-dialog-prompt-entry {
+  min-width: 15em;
+  min-height: 30px;
+  padding: 3px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  caret-color: white;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+  transition-duration: 250ms;
+}
+.unlock-dialog .login-dialog-prompt-entry:focus {
+  border: 1px solid #0a84ff;
+  background-color: rgba(10, 132, 255, 0.5);
+  box-shadow: 0 0 16px 2px rgba(10, 132, 255, 0.7);
+}
+.unlock-dialog .login-dialog-prompt-entry .hint-text {
+  color: rgba(255, 255, 255, 0.75);
+}
+.unlock-dialog .login-dialog-message,
+.unlock-dialog .login-dialog-message-hint {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* ---- Control Center (GNOME Quick Settings), macOS Tahoe style ----
+   A dark glass panel of rounded tiles. A toggle's tile stays neutral and
+   only its icon's circle turns blue when it's on; sliders are thick white
+   capsules. Selectors name the panel and its grid so they outrank the theme and
+   Blur my Shell's popup styles. */
+.quick-settings {
+  padding: 14px !important;
+  border-radius: 26px !important;
+  background-color: rgba(30, 30, 32, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45) !important;
+}
+
+.quick-settings .quick-settings-grid {
+  spacing-rows: 10px;
+  spacing-columns: 10px;
+}
+
+/* Tiles: plain toggles and toggles with a menu arrow alike. */
+.quick-settings .quick-settings-grid .quick-toggle,
+.quick-settings .quick-settings-grid .quick-toggle:hover,
+.quick-settings .quick-settings-grid .quick-toggle:active,
+.quick-settings .quick-settings-grid .quick-toggle:checked,
+.quick-settings .quick-settings-grid .quick-toggle:checked:hover,
+.quick-settings .quick-settings-grid .quick-toggle:checked:active {
+  min-width: 11em;
+  max-width: 11em;
+  min-height: 3.2em;
+  padding: 0 !important;
+  border-radius: 18px;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.09) !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08) !important;
+}
+.quick-settings .quick-settings-grid .quick-toggle:hover,
+.quick-settings .quick-settings-grid .quick-toggle:checked:hover {
+  background-color: rgba(255, 255, 255, 0.14) !important;
+}
+.quick-settings .quick-settings-grid .quick-toggle:active,
+.quick-settings .quick-settings-grid .quick-toggle:checked:active {
+  background-color: rgba(255, 255, 255, 0.19) !important;
+}
+
+.quick-settings .quick-settings-grid .quick-menu-toggle,
+.quick-settings .quick-settings-grid .quick-menu-toggle:hover,
+.quick-settings .quick-settings-grid .quick-menu-toggle:active,
+.quick-settings .quick-settings-grid .quick-menu-toggle:checked {
+  min-width: 11em;
+  max-width: 11em;
+  padding: 0 !important;
+  border-radius: 18px;
+  background-color: rgba(255, 255, 255, 0.09) !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08) !important;
+}
+.quick-settings .quick-settings-grid .quick-menu-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.14) !important;
+}
+/* Inside a tile with an arrow, the toggle part itself is see-through. */
+.quick-settings .quick-settings-grid .quick-menu-toggle .quick-toggle,
+.quick-settings .quick-settings-grid .quick-menu-toggle .quick-toggle:hover,
+.quick-settings .quick-settings-grid .quick-menu-toggle .quick-toggle:active,
+.quick-settings .quick-settings-grid .quick-menu-toggle .quick-toggle:checked {
+  min-width: 0;
+  max-width: none;
+  background: none !important;
+  box-shadow: none !important;
+  border-radius: 18px 0 0 18px;
+}
+
+.quick-settings .quick-settings-grid .quick-toggle > StBoxLayout,
+.quick-settings .quick-settings-grid .quick-menu-toggle .quick-toggle:ltr > StBoxLayout {
+  spacing: 10px;
+  padding: 7px 8px 7px 8px;
+}
+
+/* The icon sits in a circle: grey when off, blue when on. */
+.quick-settings .quick-settings-grid .quick-toggle .quick-toggle-icon,
+.quick-settings .quick-settings-grid .quick-menu-toggle .quick-toggle .quick-toggle-icon {
+  icon-size: 16px !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  padding: 8px;
+  border-radius: 999px;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.16);
+}
+.quick-settings .quick-settings-grid .quick-toggle:hover .quick-toggle-icon,
+.quick-settings .quick-settings-grid .quick-menu-toggle .quick-toggle:hover .quick-toggle-icon {
+  background-color: rgba(255, 255, 255, 0.22);
+}
+.quick-settings .quick-settings-grid .quick-toggle:checked .quick-toggle-icon,
+.quick-settings .quick-settings-grid .quick-menu-toggle .quick-toggle:checked .quick-toggle-icon {
+  color: white;
+  background-color: #0a84ff;
+}
+
+.quick-settings .quick-settings-grid .quick-toggle .quick-toggle-title {
+  font-weight: 600;
+}
+.quick-settings .quick-settings-grid .quick-toggle .quick-toggle-subtitle {
+  font-weight: normal;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* The arrow that opens a toggle's menu: a small chevron, no frame. */
+.quick-settings .quick-settings-grid .quick-menu-toggle .quick-toggle-arrow,
+.quick-settings .quick-settings-grid .quick-menu-toggle .quick-toggle-arrow:ltr {
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0 12px 0 6px;
+  border-radius: 0 18px 18px 0;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.55);
+}
+.quick-settings .quick-settings-grid .quick-menu-toggle .quick-toggle-arrow:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: white;
+}
+
+/* Sliders: one tile each, no tall padding, and a thick capsule bar. */
+.quick-settings .quick-settings-grid .quick-slider {
+  padding: 8px 10px;
+  border-radius: 18px;
+  background-color: rgba(255, 255, 255, 0.09);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08) !important;
+}
+.quick-settings .quick-settings-grid .quick-slider > StBoxLayout {
+  spacing: 8px;
+}
+.quick-settings .quick-settings-grid .quick-slider .icon-button {
+  padding: 6px;
+  color: rgba(255, 255, 255, 0.8);
+}
+.quick-settings .quick-settings-grid .quick-slider .slider-bin {
+  min-height: 0;
+  padding: 2px 0;
+}
+.quick-settings .quick-settings-grid .quick-slider .slider {
+  height: 22px;
+  color: white;
+  -barlevel-height: 22px;
+  -barlevel-background-color: rgba(255, 255, 255, 0.16);
+  -barlevel-active-background-color: white;
+  -barlevel-border-width: 0;
+  -slider-handle-radius: 11px;
+  -slider-handle-border-width: 0;
+}
+
+/* The top row (battery, screenshot, settings, lock, power): small round buttons. */
+.quick-settings .quick-settings-grid .quick-settings-system-item .icon-button,
+.quick-settings .quick-settings-grid .quick-settings-system-item .button {
+  padding: 8px;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.09);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+.quick-settings .quick-settings-grid .quick-settings-system-item .icon-button:hover,
+.quick-settings .quick-settings-grid .quick-settings-system-item .button:hover {
+  background-color: rgba(255, 255, 255, 0.16);
+}
+
+/* ---- Dock, macOS Tahoe style: light frosted glass with a bright edge.
+   (Blur my Shell's "transparent" dock style lets the blur show through.) */
+#dashtodockContainer #dash.transparent-dash .dash-background,
+#dashtodockContainer #dash .dash-background {
+  background-color: rgba(255, 255, 255, 0.13) !important;
+  border: 1px solid rgba(255, 255, 255, 0.24) !important;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+#dashtodockContainer #dash .dash-separator {
+  width: 1px;
+  margin-left: 4px;
+  margin-right: 4px;
+  background-color: rgba(255, 255, 255, 0.28);
+}
+
+/* ---- Top bar: one size for every label and every icon ----
+   Sizes are in pixels so GNOME's text scaling (Large Text, meant for apps) doesn't
+   make the bar's text as tall as its icons; on a Mac the menu bar's text is
+   a little smaller than its icons. The app name is bold, as on a Mac. */
+#panel {
+  font-size: 16px;
+  font-weight: 500;
+}
+#panel .panel-button StLabel,
+#panel .panel-button.clock-display .clock,
+#panel .panel-button .panel-status-menu-box StLabel {
+  font-size: 16px;
+  font-weight: 500;
+}
+#panel #appMenu StLabel {
+  font-weight: bold;
+}
+#panel .panel-button .system-status-icon,
+#panel .panel-button .app-menu-icon,
+#panel .panel-button .appindicator-icon,
+#panel .panel-button .appindicator-trayicons-box StIcon {
+  icon-size: 20px;
+}
+#panel .panel-button .system-status-icon {
+  padding: 3px;
+}
