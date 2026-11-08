@@ -32,14 +32,18 @@
 
 /* The password prompt near the bottom, as on macOS: a small picture, the
    name, then a frosted pill whose ring glows blue while you type. */
-/* A short field, as on a Mac. Ubuntu's own theme makes it at least 30em,
-   which Large Text widens further. */
+/* A short field, as on a Mac: about 185 px, between GNOME's invisible 32 px
+   Back button and the 32 px spinner slot. Ubuntu's own theme makes the
+   prompt at least 30em, which Large Text widens further. */
 #lockDialogGroup .unlock-dialog .login-dialog-prompt-layout {
-  width: 210px;
-  min-width: 210px;
+  width: 266px;
+  min-width: 266px;
   padding-top: 0;
   padding-bottom: 0;
   spacing: 10px;
+}
+#lockDialogGroup .unlock-dialog .login-dialog-button-box {
+  spacing: 8px;
 }
 #lockDialogGroup .unlock-dialog .user-widget.vertical .user-icon {
   icon-size: 64px;
