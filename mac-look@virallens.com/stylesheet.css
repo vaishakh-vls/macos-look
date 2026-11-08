@@ -1,28 +1,30 @@
-/* macOS Tahoe style lock screen clock: date on top, then a large bold time. */
-.mac-lockscreen-clock {
+/* macOS Tahoe style lock screen clock: date on top, then a large bold time.
+   Every lock screen rule starts with #lockDialogGroup so it outranks the
+   shell theme's rule for the same thing (GNOME breaks ties at random). */
+#lockDialogGroup .mac-lockscreen-clock {
   spacing: 0;
   padding-bottom: 0;
 }
 
-.mac-lockscreen-clock .unlock-dialog-clock-date {
+#lockDialogGroup .mac-lockscreen-clock .unlock-dialog-clock-date {
   font-family: "Inter Display", "Inter", sans-serif;
   font-size: 19pt;
-  font-weight: 600;
+  font-weight: 500;
   color: rgba(255, 255, 255, 0.9);
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
 }
 
-.mac-lockscreen-clock .unlock-dialog-clock-time {
+#lockDialogGroup .mac-lockscreen-clock .unlock-dialog-clock-time {
   font-family: "Inter Display", "Inter", sans-serif;
   font-size: 104pt;
-  font-weight: 700;
-  letter-spacing: -2px;
+  font-weight: 600;
+  letter-spacing: -6px;
   padding-top: 0;
   color: rgba(255, 255, 255, 0.92);
   text-shadow: 0 2px 22px rgba(0, 0, 0, 0.3);
 }
 
-.mac-lockscreen-clock .unlock-dialog-clock-hint {
+#lockDialogGroup .mac-lockscreen-clock .unlock-dialog-clock-hint {
   font-size: 10.5pt;
   color: rgba(255, 255, 255, 0.6);
   padding-top: 0;
@@ -30,25 +32,29 @@
 
 /* The password prompt near the bottom, as on macOS: a small picture, the
    name, then a frosted pill whose ring glows blue while you type. */
-.unlock-dialog .login-dialog-prompt-layout {
+/* A short field, as on a Mac. Ubuntu's own theme makes it at least 30em,
+   which Large Text widens further. */
+#lockDialogGroup .unlock-dialog .login-dialog-prompt-layout {
+  width: 210px;
+  min-width: 210px;
   padding-top: 0;
   padding-bottom: 0;
   spacing: 10px;
 }
-.unlock-dialog .user-widget.vertical .user-icon {
+#lockDialogGroup .unlock-dialog .user-widget.vertical .user-icon {
   icon-size: 64px;
 }
-.unlock-dialog .user-widget.vertical .user-widget-label {
+#lockDialogGroup .unlock-dialog .user-widget.vertical .user-widget-label {
   font-size: 17px;
   font-weight: 600;
   padding-top: 8px;
   color: white;
   text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
 }
-.unlock-dialog .login-dialog-prompt-entry {
-  min-width: 15em;
-  min-height: 30px;
-  padding: 3px 14px;
+#lockDialogGroup .unlock-dialog .login-dialog-prompt-entry {
+  min-height: 28px;
+  padding: 2px 12px;
+  font-size: 14px;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   background-color: rgba(255, 255, 255, 0.2);
@@ -57,16 +63,16 @@
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
   transition-duration: 250ms;
 }
-.unlock-dialog .login-dialog-prompt-entry:focus {
+#lockDialogGroup .unlock-dialog .login-dialog-prompt-entry:focus {
   border: 1px solid #0a84ff;
   background-color: rgba(10, 132, 255, 0.5);
   box-shadow: 0 0 16px 2px rgba(10, 132, 255, 0.7);
 }
-.unlock-dialog .login-dialog-prompt-entry .hint-text {
+#lockDialogGroup .unlock-dialog .login-dialog-prompt-entry .hint-text {
   color: rgba(255, 255, 255, 0.75);
 }
-.unlock-dialog .login-dialog-message,
-.unlock-dialog .login-dialog-message-hint {
+#lockDialogGroup .unlock-dialog .login-dialog-message,
+#lockDialogGroup .unlock-dialog .login-dialog-message-hint {
   font-size: 13px;
   color: rgba(255, 255, 255, 0.8);
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);

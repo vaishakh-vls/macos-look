@@ -8,7 +8,7 @@ Makes Ubuntu 24.04 (GNOME 46, Wayland) look and feel like macOS Tahoe, without s
 - **Top bar:** frosted; one size for all text (16 px) and icons (20 px); a logo menu at the left (About, System Settings, App Center, Force Quit, Sleep, Restart, Shut Down, Lock Screen, Log Out), then the focused app's name in bold; at the right, tray icons, the date and time, then Wi-Fi, volume and the battery at the far right. Wi-Fi, volume and microphone use Adwaita's bold icons, which read like the macOS menu bar's. No Activities pill, no Accessibility icon, notifications top-right.
 - **Control Center** (Quick Settings): a dark glass panel of rounded tiles; a toggle's icon circle turns blue when it's on; sliders are thick white capsules.
 - **Dock:** at the bottom, light frosted glass with a bright edge; it hides when a window touches it; the app grid (Launchpad) first, Trash last, dots under open apps.
-- **Lock screen:** the wallpaper stays sharp, just a little darker; the date sits above a large bold clock near the top. Press a key and your picture, name and a frosted password field rise in near the bottom while the clock stays; the field glows blue as you type. Unlocking itself is GNOME's own.
+- **Lock screen:** the wallpaper stays sharp, just a little darker; the date sits above a large clock near the top (Inter Display SemiBold, tightly spaced). Press a key and your picture, name and a frosted password field rise in near the bottom while the clock stays; the field glows blue as you type. Unlocking itself is GNOME's own.
 - **Files:** themed like Finder, medium icons; `Space` previews the selected file (GNOME Sushi).
 - **Gestures**, via [Touchpad Gesture Customization](https://extensions.gnome.org/extension/7850/touchpad-gesture-customization/) and Mac Look:
 
