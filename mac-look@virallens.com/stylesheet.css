@@ -1,13 +1,15 @@
 /* macOS Tahoe style lock screen clock: date on top, then a large bold time.
    Every lock screen rule starts with #lockDialogGroup so it outranks the
-   shell theme's rule for the same thing (GNOME breaks ties at random). */
+   shell theme's rule for the same thing (GNOME breaks ties at random).
+   St accepts a quoted font name only first in font-family: with a second
+   quoted name it drops the whole line and the system font shows instead. */
 #lockDialogGroup .mac-lockscreen-clock {
   spacing: 0;
   padding-bottom: 0;
 }
 
 #lockDialogGroup .mac-lockscreen-clock .unlock-dialog-clock-date {
-  font-family: "Inter Display", "Inter", sans-serif;
+  font-family: "Inter Display", Inter, sans-serif;
   font-size: 19pt;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.9);
@@ -15,7 +17,7 @@
 }
 
 #lockDialogGroup .mac-lockscreen-clock .unlock-dialog-clock-time {
-  font-family: "Inter Display", "Inter", sans-serif;
+  font-family: "Inter Display", Inter, sans-serif;
   font-size: 104pt;
   font-weight: 600;
   letter-spacing: -6px;

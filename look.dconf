@@ -37,6 +37,11 @@ show-trash=true
 show-mounts=false
 show-mounts-network=false
 running-indicator-style='DOTS'
+# Shift+Super+3/4/5 are the Mac screenshot keys below, not "new window of the
+# 3rd/4th/5th dock app".
+app-shift-hotkey-3=@as []
+app-shift-hotkey-4=@as []
+app-shift-hotkey-5=@as []
 apply-custom-theme=false
 transparency-mode='DEFAULT'
 
@@ -100,3 +105,20 @@ blur=false
 
 [org/gnome/shell/extensions/blur-my-shell/window-list]
 blur=false
+
+[org/gnome/shell/keybindings]
+# Mac screenshot keys, Super standing in for Cmd: Shift+Super+3 the whole
+# screen, Shift+Super+4 pick an area, Shift+Super+5 the screenshot and
+# recording panel. Saved to Pictures/Screenshots and copied. Print keys kept.
+screenshot=['<Shift>Print', '<Shift><Super>3']
+show-screenshot-ui=['Print', '<Shift><Super>4']
+show-screen-recording-ui=['<Ctrl><Shift><Alt>R', '<Shift><Super>5']
+
+[org/gnome/shell/extensions/rounded-window-corners-reborn]
+# 24 px like the theme's own windows; GNOME's own (libadwaita) apps round
+# themselves already. Square when maximised, like the theme's own windows.
+global-rounded-corner-settings={'padding': <{'left': <uint32 1>, 'right': <uint32 1>, 'top': <uint32 1>, 'bottom': <uint32 1>}>, 'keepRoundedCorners': <{'maximized': <false>, 'fullscreen': <false>}>, 'borderRadius': <uint32 24>, 'smoothing': <0>, 'borderColor': <[0.5, 0.5, 0.5, 1.0]>, 'enabled': <true>}
+skip-libadwaita-app=true
+# Chrome's window reaches past what it draws (6 px at the sides, 3 at the top,
+# 10 at the bottom), so the corners are cut that far in for Chrome alone.
+custom-rounded-corner-settings={'google-chrome': <{'padding': <{'left': <uint32 6>, 'right': <uint32 6>, 'top': <uint32 3>, 'bottom': <uint32 10>}>, 'keepRoundedCorners': <{'maximized': <false>, 'fullscreen': <false>}>, 'borderRadius': <uint32 24>, 'smoothing': <0>, 'borderColor': <[0.5, 0.5, 0.5, 1.0]>, 'enabled': <true>}>}

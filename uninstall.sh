@@ -18,6 +18,8 @@ EXTENSIONS=(
     just-perfection-desktop@just-perfection
     logomenu@aryan_k
     touchpad-gesture-customization@coooolapps.com
+    rounded-window-corners@fxgn
+    compiz-alike-magic-lamp-effect@hermes83.github.com
     user-theme@gnome-shell-extensions.gcampax.github.com
 )
 

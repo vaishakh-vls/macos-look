@@ -15,6 +15,8 @@ EXTENSIONS=(
     just-perfection-desktop@just-perfection        # clock at the right, notifications top-right, no Activities pill
     logomenu@aryan_k                               # the logo menu: About, Settings, Force Quit, Sleep, Restart, Lock...
     touchpad-gesture-customization@coooolapps.com  # macOS trackpad gestures
+    rounded-window-corners@fxgn                    # rounded corners on apps that draw square ones (Chrome, Electron)
+    compiz-alike-magic-lamp-effect@hermes83.github.com  # the genie effect when a window minimises
 )
 # Ships with Ubuntu (apt package gnome-shell-extensions); lets GNOME Shell use the theme.
 USER_THEME=user-theme@gnome-shell-extensions.gcampax.github.com

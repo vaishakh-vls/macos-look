@@ -1,6 +1,6 @@
 # macOS look for Ubuntu
 
-Makes Ubuntu 24.04 (GNOME 46, Wayland) look and feel like macOS Tahoe, without slowing it down: the themes are only stylesheets and icons, nothing extra runs in the background or uses the network, and blur is static (worked out once, not redrawn as windows move).
+Makes Ubuntu 24.04 (GNOME 46, Wayland) look and feel like macOS Tahoe, without slowing it down: the themes are only stylesheets and icons, nothing extra runs in the background or uses the network, and blur is static (worked out once, not redrawn as windows move). The one small cost is the rounded corners: GNOME draws each rounded window through a shader.
 
 ## What you get
 
@@ -9,6 +9,8 @@ Makes Ubuntu 24.04 (GNOME 46, Wayland) look and feel like macOS Tahoe, without s
 - **Control Center** (Quick Settings): a dark glass panel of rounded tiles; a toggle's icon circle turns blue when it's on; sliders are thick white capsules.
 - **Dock:** at the bottom, light frosted glass with a bright edge; it hides when a window touches it; the app grid (Launchpad) first, Trash last, dots under open apps.
 - **Lock screen:** the wallpaper stays sharp, just a little darker; the date sits above a large clock near the top (Inter Display SemiBold, tightly spaced). Press a key and your picture, name and a frosted password field rise in near the bottom while the clock stays; the field glows blue as you type. Unlocking itself is GNOME's own.
+- **Windows:** every window has rounded corners, 24 px like the theme's own, including apps that draw square ones such as Chrome and Electron apps ([Rounded Window Corners Reborn](https://extensions.gnome.org/extension/7048/rounded-window-corners-reborn/); GNOME's own apps round themselves). Minimising pours the window into the dock like the genie effect ([Compiz alike magic lamp effect](https://extensions.gnome.org/extension/3740/compiz-alike-magic-lamp-effect/)).
+- **Screenshots** with the Mac keys, Super for Cmd: `Shift+Super+3` the whole screen, `Shift+Super+4` pick an area, `Shift+Super+5` the screenshot and recording panel. They go to Pictures/Screenshots and the clipboard. These keys no longer open the 3rd, 4th and 5th dock apps.
 - **Files:** themed like Finder, medium icons; `Space` previews the selected file (GNOME Sushi).
 - **Gestures**, via [Touchpad Gesture Customization](https://extensions.gnome.org/extension/7850/touchpad-gesture-customization/) and Mac Look:
 
@@ -40,9 +42,9 @@ It builds the theme from the upstream projects at pinned, reviewed commits ([Mac
 |---|---|
 | `install.sh` | Everything below, in order, then the settings |
 | `theme.sh` | Builds the themes into `~/.themes` and `~/.config/gtk-4.0`, icons and cursors into `~/.local/share/icons` |
-| `extensions.sh` | Installs [Blur my Shell](https://extensions.gnome.org/extension/3193/blur-my-shell/), [Just Perfection](https://extensions.gnome.org/extension/3843/just-perfection/), [Logo Menu](https://extensions.gnome.org/extension/4451/logo-menu/) and Touchpad Gesture Customization from extensions.gnome.org (every version there is reviewed by GNOME), and turns them on with User Themes and Mac Look |
+| `extensions.sh` | Installs [Blur my Shell](https://extensions.gnome.org/extension/3193/blur-my-shell/), [Just Perfection](https://extensions.gnome.org/extension/3843/just-perfection/), [Logo Menu](https://extensions.gnome.org/extension/4451/logo-menu/), Touchpad Gesture Customization, Rounded Window Corners Reborn and the magic lamp effect from extensions.gnome.org (every version there is reviewed by GNOME), and turns them on with User Themes and Mac Look |
 | `mac-look@virallens.com/` | Mac Look, the GNOME Shell extension for the lock screen layout, the app name and battery position in the top bar, the Control Center, dock and top bar styles, the five-finger gesture and `` Super+` `` in the app switcher |
-| `look.dconf` | The settings: theme, fonts, window buttons, dock, top bar, Files, lock screen background, touchpad and gestures |
+| `look.dconf` | The settings: theme, fonts, window buttons, dock, top bar, Files, lock screen background, touchpad and gestures, screenshot keys, window corners |
 | `uninstall.sh` | Takes it all off again |
 
 ## Make it yours
