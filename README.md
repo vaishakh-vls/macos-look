@@ -24,6 +24,8 @@ Makes Ubuntu 24.04 (GNOME 46, Wayland) look and feel like macOS Tahoe, without s
 
   Not possible on Ubuntu 24.04: three-finger drag (needs a newer libinput), Look Up and force click.
 
+- **App switcher** (Mac Look): `Super+Tab` switches apps as `Cmd+Tab` does; while it's open, `` Super+` `` steps back to the previous app and `` Shift+Super+` `` forward again, as `` Cmd+` `` does on a Mac. Pressed on its own, `` Super+` `` switches between the windows of the app you're in.
+
 ## Install
 
 ```sh
@@ -39,7 +41,7 @@ It builds the theme from the upstream projects at pinned, reviewed commits ([Mac
 | `install.sh` | Everything below, in order, then the settings |
 | `theme.sh` | Builds the themes into `~/.themes` and `~/.config/gtk-4.0`, icons and cursors into `~/.local/share/icons` |
 | `extensions.sh` | Installs [Blur my Shell](https://extensions.gnome.org/extension/3193/blur-my-shell/), [Just Perfection](https://extensions.gnome.org/extension/3843/just-perfection/), [Logo Menu](https://extensions.gnome.org/extension/4451/logo-menu/) and Touchpad Gesture Customization from extensions.gnome.org (every version there is reviewed by GNOME), and turns them on with User Themes and Mac Look |
-| `mac-look@virallens.com/` | Mac Look, the GNOME Shell extension for the lock screen layout, the app name and battery position in the top bar, the Control Center, dock and top bar styles, and the five-finger gesture |
+| `mac-look@virallens.com/` | Mac Look, the GNOME Shell extension for the lock screen layout, the app name and battery position in the top bar, the Control Center, dock and top bar styles, the five-finger gesture and `` Super+` `` in the app switcher |
 | `look.dconf` | The settings: theme, fonts, window buttons, dock, top bar, Files, lock screen background, touchpad and gestures |
 | `uninstall.sh` | Takes it all off again |
 

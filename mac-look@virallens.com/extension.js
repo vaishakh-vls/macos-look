@@ -21,10 +21,15 @@
 //   before Wi-Fi, volume and battery. Just Perfection puts the clock at the
 //   end of the right side; this only swaps the order there, which moves
 //   nothing in or out of the bar, so Just Perfection doesn't react to it.
+// - In the Super+Tab app switcher, Super+` steps back to the previous app
+//   (and Shift+Super+` forward again), as Cmd+` does in the Mac's Cmd+Tab
+//   switcher. Pressed on its own, Super+` still switches between the
+//   windows of the app you're in, as on a Mac.
 import Clutter from 'gi://Clutter';
 import Meta from 'gi://Meta';
 import Shell from 'gi://Shell';
 import St from 'gi://St';
+import * as AltTab from 'resource:///org/gnome/shell/ui/altTab.js';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
 
@@ -38,6 +43,28 @@ const PINCH_OUT = 1.25;
 const PROMPT_BOTTOM = 0.07;
 /** How far (in pixels) the prompt rises as it fades in. */
 const PROMPT_RISE = 36;
+
+/**
+ * GNOME's app switcher key handler, with Super+` (GNOME's "switch windows of
+ * an app" key) and Shift+Super+` moving between apps while the apps row has
+ * the focus. Once you're among one app's windows (Super+` alone, or Down),
+ * GNOME's own handling stays.
+ */
+function appSwitcherKeys(original) {
+    return function (keysym, action) {
+        if (!this._thumbnailsFocused) {
+            if (action === Meta.KeyBindingAction.SWITCH_GROUP) {
+                this._select(this._previous());
+                return Clutter.EVENT_STOP;
+            }
+            if (action === Meta.KeyBindingAction.SWITCH_GROUP_BACKWARD) {
+                this._select(this._next());
+                return Clutter.EVENT_STOP;
+            }
+        }
+        return original.call(this, keysym, action);
+    };
+}
 
 /** Runs fn once GNOME's own handlers for the current event have run. */
 function later(fn) {
@@ -73,9 +100,17 @@ export default class MacLook extends Extension {
 
         Main.panel._rightBox.connectObject('child-added', () => later(() => this._placeClock()), this);
         this._placeClock();
+
+        const switcher = AltTab.AppSwitcherPopup.prototype;
+        this._switcherKeys = switcher._keyPressHandler;
+        switcher._keyPressHandler = appSwitcherKeys(this._switcherKeys);
     }
 
     disable() {
+        if (this._switcherKeys) {
+            AltTab.AppSwitcherPopup.prototype._keyPressHandler = this._switcherKeys;
+            this._switcherKeys = null;
+        }
         Main.panel._rightBox.disconnectObject(this);
         // The clock back at the end, where Just Perfection puts it.
         const clock = Main.panel.statusArea.dateMenu?.container;
