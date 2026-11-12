@@ -18,6 +18,14 @@ EXTENSIONS=(
     rounded-window-corners@fxgn                    # rounded corners on apps that draw square ones (Chrome, Electron)
     compiz-alike-magic-lamp-effect@hermes83.github.com  # the genie effect when a window minimises
 )
+# These two only touch windows, which the lock screen hides, so they can stay
+# loaded while the screen is locked. GNOME otherwise turns each extension off
+# when the screen locks and on again at unlock, and each one that does so
+# costs about a tenth of a second of frozen screen (see the README).
+KEEP_WHILE_LOCKED=(
+    rounded-window-corners@fxgn
+    compiz-alike-magic-lamp-effect@hermes83.github.com
+)
 # Ships with Ubuntu (apt package gnome-shell-extensions); lets GNOME Shell use the theme.
 USER_THEME=user-theme@gnome-shell-extensions.gcampax.github.com
 
@@ -31,6 +39,23 @@ for uuid in "${EXTENSIONS[@]}"; do
         "https://extensions.gnome.org/download-extension/$uuid.shell-extension.zip?shell_version=$shell_major"
     gnome-extensions install --force "$work/$uuid.zip"
 done
+
+# Say in each one's metadata that it also runs on the lock screen ("unlock-dialog").
+python3 - "${KEEP_WHILE_LOCKED[@]}" <<'PY'
+import json, os, sys
+base = os.path.join(os.environ.get("XDG_DATA_HOME") or os.path.expanduser("~/.local/share"), "gnome-shell/extensions")
+for uuid in sys.argv[1:]:
+    path = os.path.join(base, uuid, "metadata.json")
+    with open(path) as f:
+        meta = json.load(f)
+    modes = meta.get("session-modes") or ["user"]
+    if "unlock-dialog" not in modes:
+        meta["session-modes"] = modes + ["unlock-dialog"]
+        with open(path, "w") as f:
+            json.dump(meta, f, indent=2)
+            f.write("\n")
+        print(f"{uuid}: stays loaded while the screen is locked")
+PY
 
 # Turn them on; GNOME Shell loads newly installed extensions only at login.
 python3 - "$USER_THEME" "$MAC_LOOK" "${EXTENSIONS[@]}" <<'PY'
