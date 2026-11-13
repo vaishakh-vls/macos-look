@@ -1,6 +1,7 @@
 // Finishing touches for the macOS look:
 //
-// - Lock screen like macOS Tahoe: the date above a large, bold clock near
+// - Lock screen like macOS Tahoe: a short date above a large clock (hours
+//   and minutes, no seconds) near
 //   the top of the screen, so the wallpaper stays in view. When you press a
 //   key, the clock stays and your picture, name and password field rise in
 //   near the bottom of the screen. Only where GNOME's own pieces sit and how
@@ -26,6 +27,8 @@
 //   switcher. Pressed on its own, Super+` still switches between the
 //   windows of the app you're in, as on a Mac.
 import Clutter from 'gi://Clutter';
+import Gio from 'gi://Gio';
+import GLib from 'gi://GLib';
 import Meta from 'gi://Meta';
 import Shell from 'gi://Shell';
 import St from 'gi://St';
@@ -230,6 +233,9 @@ export default class MacLook extends Extension {
         try {
             clock.add_style_class_name(STYLE_CLASS);
             clock.set_child_below_sibling(clock._date, clock._time);
+            // Connected after GNOME's own handler, so this text is the one that stays.
+            clock._wallClock?.connectObject('notify::clock', () => this._macClock(clock), this);
+            this._macClock(clock);
             // GNOME animates the clock's own position when the password
             // prompt opens, so the labels inside it are moved instead.
             clock.connectObject('notify::allocation', () => this._place(clock), this);
@@ -246,6 +252,15 @@ export default class MacLook extends Extension {
             console.error(`mac-look: ${e}`);
             this._unstyle(dialog);
         }
+    }
+
+    /** The time without seconds and a short date ("Fri Nov 13"), as a Mac's lock screen has them. */
+    _macClock(clock) {
+        this._interface ??= new Gio.Settings({schema_id: 'org.gnome.desktop.interface'});
+        const now = GLib.DateTime.new_now_local();
+        const twelveHour = this._interface.get_string('clock-format') === '12h';
+        clock._time.text = now.format(twelveHour ? '%-I:%M' : '%H:%M');
+        clock._date.text = now.format('%a %b %-d');
     }
 
     _place(clock) {
@@ -321,6 +336,8 @@ export default class MacLook extends Extension {
         if (!clock?._time || !clock._date)
             return;
         clock.disconnectObject(this);
+        clock._wallClock?.disconnectObject(this);
+        clock._updateClock?.();
         clock.remove_style_class_name(STYLE_CLASS);
         clock.set_child_below_sibling(clock._time, clock._date);
         for (const label of clock.get_children())
